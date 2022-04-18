@@ -1,0 +1,82 @@
+---
+version: '3'
+services:
+
+
+  freqtradeb1:
+    depends_on:
+      - binance-proxy
+    image: freqtradeorg/freqtrade:stable
+    #image: freqtradeorg/freqtrade:develop
+    # Use plotting image
+    # image: freqtradeorg/freqtrade:develop_plot
+    # Build step - only needed when additional dependencies are needed
+    # build:
+    #   context: .
+    #   dockerfile: "./docker/Dockerfile.custom"
+    restart: unless-stopped
+    container_name: freqtradeb1
+    hostname: freqtradeb1
+  #  networks:
+   #   freqtrade:
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    # Expose api on port 8080 (localhost only)
+    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
+    # before enabling this.
+    ports:
+      - "127.0.0.1:9070:9070"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtradeb1.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3b1.sqlite
+      --config /freqtrade/user_data/config-binanceproxy.json
+      --strategy NostalgiaForInfinityX
+
+  freqtradeb2:
+    depends_on:
+      - binance-proxy
+    image: freqtradeorg/freqtrade:stable
+    #image: freqtradeorg/freqtrade:develop
+    # Use plotting image
+    # image: freqtradeorg/freqtrade:develop_plot
+    # Build step - only needed when additional dependencies are needed
+    # build:
+    #   context: .
+    #   dockerfile: "./docker/Dockerfile.custom"
+    restart: unless-stopped
+    container_name: freqtradeb2
+    hostname: freqtradeb2
+   # networks:
+   #   freqtrade:
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    # Expose api on port 8080 (localhost only)
+    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
+    # before enabling this.
+    ports:
+      - "127.0.0.1:9071:9070"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtradeb2.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3b2.sqlite
+      --config /freqtrade/user_data/config1-binanceproxy.json
+      --strategy NostalgiaForInfinityX
+
+  binance-proxy:
+    image: nightshift2k/binance-proxy:latest
+    restart: unless-stopped
+    container_name: binance-proxy
+    hostname: binance-proxy
+   # networks:
+    #  freqtrade:
+   #     ipv4_address: 172.29.0.3
+    ports:
+      - "8090:8090"
+      - "8091:8091"
+    command: -f  -v -a
+#networks:
+#  freqtrade:
+#      name: freqtrade

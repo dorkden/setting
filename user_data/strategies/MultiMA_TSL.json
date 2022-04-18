@@ -1,0 +1,49 @@
+{
+  "strategy_name": "MultiMA_TSL",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.292
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": 0.01,
+      "trailing_stop_positive_offset": 0.018,
+      "trailing_only_offset_is_reached": true
+    },
+    "buy": {
+      "base_nb_candles_buy_ema": 46,
+      "base_nb_candles_buy_sma": 18,
+      "base_nb_candles_buy_trima": 14,
+      "ewo_high": 2.155,
+      "ewo_low": -15.716,
+      "fast_ewo": 40,
+      "low_offset_ema": 0.957,
+      "low_offset_sma": 0.974,
+      "low_offset_trima": 0.98,
+      "rsi_buy_ema": 57,
+      "rsi_buy_sma": 44,
+      "rsi_buy_trima": 68,
+      "slow_ewo": 189
+    },
+    "sell": {
+      "base_nb_candles_sell": 25,
+      "high_offset_ema": 1.01,
+      "sl_filter_candles": 4,
+      "sl_filter_offset": 0.98
+    },
+    "protection": {
+      "cooldown_lookback": 6,
+      "low_profit_lookback": 31,
+      "low_profit_min_req": -0.04,
+      "low_profit_stop_duration": 22
+    },
+    "roi": {
+      "0": 0.059,
+      "40": 0.045,
+      "90": 0.034,
+      "206": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2021-09-02 04:03:21.589779+00:00"
+}
