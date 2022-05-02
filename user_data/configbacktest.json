@@ -1,7 +1,7 @@
 {
     "max_open_trades": 4,
     "stake_currency": "BUSD",
-    "stake_amount": 100,
+    "stake_amount": 200,
     "tradable_balance_ratio": 0.95,
     "fiat_display_currency": "USD",
     "amount_reserve_percent": 0.05,

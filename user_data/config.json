@@ -1,7 +1,7 @@
 {
     "max_open_trades": 4,
     "stake_currency": "BUSD",
-    "stake_amount": "unlimited",
+    "stake_amount": "200",
     "tradable_balance_ratio": 0.95,
     "fiat_display_currency": "USD",
     "amount_reserve_percent": 0.05,
@@ -91,7 +91,7 @@
         },
        {"method": "ShuffleFilter", },
     ],
-   /* "protections": [
+    "protections": [
         {
             "method": "StoplossGuard",
             "lookback_period_candles": 12,
@@ -117,7 +117,7 @@
             "stop_duration_candles": 20,
             "required_profit": -0.05
         }
-    ],*/
+    ],
     "exchange": {
         "name": "binance",
         "sandbox": false,
@@ -217,11 +217,11 @@
     "api_server": {
         "enabled": true,
         "listen_ip_address": "0.0.0.0",
-        "listen_port": 8080,
+        "listen_port": 8081,
         "verbosity": "error",
         "enable_openapi": false,
         "jwt_secret_key": "pigpig",
-        "CORS_origins": ["http://127.0.0.1:8080"],
+        "CORS_origins": ["http://127.0.0.1:9080"],
         "username": "us",
         "password": "pa"
     },
