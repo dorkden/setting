@@ -192,8 +192,8 @@
     },
   "telegram": {
         "enabled": false,
-        "token": "1974769971:AAH76j-FC7_Uoc0WZwUo",
-        "chat_id": "196747",
+        "token": "",
+        "chat_id": "",
         "notification_settings": {
             "status": "silent",
             "warning": "silent",
